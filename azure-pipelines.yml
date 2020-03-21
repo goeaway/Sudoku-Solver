@@ -19,7 +19,7 @@ steps:
   inputs:
     command: publish
     arguments: '--configuration Release --output publish_output'
-    projects: 'SudokuSolver.API.csproj'
+    projects: '*.csproj'
     publishWebProjects: false
     modifyOutputPath: false
     zipAfterPublish: false
