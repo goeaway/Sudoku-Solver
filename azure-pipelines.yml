@@ -34,10 +34,10 @@ steps:
   inputs:
     PathtoPublish: '$(System.DefaultWorkingDirectory)/build$(Build.BuildId).zip'
     artifactName: 'drop'
-- task: AzureFunctionApp@1
+- task: AzureWebApp@1
   inputs:
     azureSubscription: 'sudoku-solver - Azure'
-    appType: 'functionApp'
-    appName: 'sudoku-solver'
+    appType: 'webAppLinux'
+    appName: 'sudoku-api'
     package: '$(System.DefaultWorkingDirectory)/**/*.zip'
-    deploymentMethod: 'auto'
+    runtimeStack: 'DOTNETCORE|2.2'
