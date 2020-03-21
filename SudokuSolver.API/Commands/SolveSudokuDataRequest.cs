@@ -3,11 +3,11 @@ using SudokuSolver.API.Models;
 
 namespace SudokuSolver.API.Commands
 {
-    public class SolveSudokuRequest : IRequest<SolveSudokuResponseModel>
+    public class SolveSudokuDataRequest : IRequest<SolveSudokuResponseModel>
     {
         public int[,] Board { get; }
 
-        public SolveSudokuRequest(int[,] board)
+        public SolveSudokuDataRequest(int[,] board)
         {
             Board = board;
         }

@@ -8,13 +8,13 @@ using SudokuSolver.API.Models;
 
 namespace SudokuSolver.API.Commands
 {
-    public class SolveSudokuHandler : IRequestHandler<SolveSudokuRequest, SolveSudokuResponseModel>
+    public class SolveSudokuDataHandler : IRequestHandler<SolveSudokuDataRequest, SolveSudokuResponseModel>
     {
-        public Task<SolveSudokuResponseModel> Handle(SolveSudokuRequest request, CancellationToken cancellationToken)
+        public Task<SolveSudokuResponseModel> Handle(SolveSudokuDataRequest dataRequest, CancellationToken cancellationToken)
         {
             return Task.Run(() =>
             {
-                var result = Solver.Solve(new Sudoku(request.Board));
+                var result = Solver.Solve(new Sudoku(dataRequest.Board));
                 return new SolveSudokuResponseModel
                 {
                     Solved = Checker.Check(result),

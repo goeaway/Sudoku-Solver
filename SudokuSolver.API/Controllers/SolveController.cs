@@ -20,10 +20,12 @@ namespace SudokuSolver.API.Controllers
             _mediator = mediator;
         }
 
-        [HttpPost("")]
-        public Task<SolveSudokuResponseModel> Solve(int[,] array)
-        {
-            return _mediator.Send(new SolveSudokuRequest(array));
-        }
+        [HttpPost("data")]
+        public Task<SolveSudokuResponseModel> SolveData(int[,] array)
+            => _mediator.Send(new SolveSudokuDataRequest(array));
+
+        [HttpPost("image")]
+        public Task<SolveSudokuResponseModel> SolveImage(byte[] data)
+            => _mediator.Send(new SolveSudokuImageRequest(data));
     }
 }

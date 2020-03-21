@@ -21,7 +21,7 @@ namespace SudokuSolver
                 case Difficulty.Expert:
                     return 22;
                 case Difficulty.BloodyHard:
-                    return 15;
+                    return 17;
                 default: 
                     throw new NotSupportedException(difficulty.ToString());
             }
