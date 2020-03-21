@@ -21,5 +21,5 @@ steps:
     azureSubscription: 'sudoku-solver - Azure'
     appType: 'functionApp'
     appName: 'sudoku-solver'
-    package: '$(System.DefaultWorkingDirectory)/**/SudokuSolver.API.dll'
+    package: '$(System.DefaultWorkingDirectory)/**/SudokuSolver.API/bin/Release/netcoreapp2.2/SudokuSolver.API.dll'
     deploymentMethod: 'auto'
