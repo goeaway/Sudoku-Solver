@@ -23,7 +23,7 @@ namespace SudokuSolver.API.Behaviors
             var clientIP = _httpContextAccessor.HttpContext.Connection.RemoteIpAddress;
             var name = typeof(TRequest).Name;
             _logger.Information("Handling {name} request from {clientIP}", name, clientIP);
-
+             
             return next();
         }
     }
