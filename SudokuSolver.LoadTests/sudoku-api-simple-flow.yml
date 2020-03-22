@@ -1,0 +1,16 @@
+config:
+    target: 'http://sudoku-api.azurewebsites.net'
+    phases:
+      - duration: 30
+        arrivalRate: 2
+scenarios:
+- flow:
+    - get:
+        url: "/board/new?difficulty=bloodyhard&seed=1"
+        capture:
+            json: "$"
+            as: "board"
+    - post:
+        url: "/solve/data"
+        json: "{{board}}"
+  
