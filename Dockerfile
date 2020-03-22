@@ -2,7 +2,9 @@ FROM mcr.microsoft.com/dotnet/core/aspnet:2.2
 
 ARG app_publish_path
 
-RUN mkdir {/sudoku,/sudoku/app,/sudoku/logs}
+RUN mkdir /sudoku
+RUN mkdir /sudoku/app
+RUN mkdir /sudoku/logs
 
 WORKDIR /sudoku/app
 
