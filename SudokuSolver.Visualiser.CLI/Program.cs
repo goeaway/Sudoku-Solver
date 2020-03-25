@@ -9,15 +9,16 @@ namespace SudokuSolver.Visualiser.CLI
         static void Main(string[] args) => Parser.Default.ParseArguments<Options>(args)
             .WithParsed(o =>
             {
+                Console.CursorVisible = false;
                 var sudoku = Generator.Generate(o.Difficulty, o.Seed);
                 var solved = SolvingEngine.Solve(sudoku, () =>
                 {
-                    Console.Clear();
-                    Console.WriteLine(sudoku);
+                    // overwrite the last, 
+                    // doing this way avoids flicker
+                    Console.SetCursorPosition(0,0);
+                    Console.Write(sudoku);
                     Thread.Sleep((int)o.Timeout);
                 });
-
-                var isSolved = Checker.Check(sudoku);
 
                 Console.Clear();
                 Console.WriteLine("###### SOLVED ######");
