@@ -18,38 +18,9 @@ namespace SudokuSolver
                 return sudoku;
             }
 
-            InnerSolve(sudoku);
+            SolvingEngine.Solve(sudoku);
 
             return sudoku;
-        }
-
-        private static bool InnerSolve(Sudoku sudoku)
-        {
-            var empty = sudoku.GetEmptyCells();
-
-            if (!empty.Any())
-            {
-                return true;
-            }
-
-            var workingCell = empty.First();
-
-            foreach (var n in Enumerable.Range(1, 9))
-            {
-                if (sudoku.ValuePossible(workingCell, n))
-                { 
-                    workingCell.Value = n;
-
-                    if (InnerSolve(sudoku))
-                    {
-                        return true;
-                    }
-                    // backtrack
-                    workingCell.Value =  0;
-                }
-            }
-
-            return false;
         }
     }
 }
